@@ -1,0 +1,52 @@
+<div class="container">
+    <div *ngIf="movie" class="row animate__animated animate__bounce animate__fadeId">
+        <div class="col-md-9">
+            <h1><strong>{{movie.title}}</strong></h1>
+            <img style="width: 80%; height: 80%;" class="rouded" src="{{movie.image}}" alt="">
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-primary" routerLink="/">Back</a>
+        </div>
+    </div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <a class="btn btn-info">Show all details</a>
+        </mat-expansion-panel-header>
+        <div *ngIf="movie !== undefined" class="row">
+            <p class="col-md-1"><strong>Director: </strong></p>
+            <div *ngFor="let d of movie.director" class="col">
+                {{d}}
+            </div>
+        </div>
+        <div *ngIf="movie !== undefined" class="row">
+            <p class="col-md-1"><strong>Writers: </strong></p>
+            <div *ngFor="let d of movie.writers" class="col">
+                {{d}}
+            </div>
+        </div>
+        <div *ngIf="movie !== undefined" class="row">
+            <p class="col-md-1"><strong>Genre: </strong></p>
+            <div *ngFor="let d of movie.genre" class="col">
+                {{d}}
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-md-1"><strong>Year: </strong></p>
+            <div class="col">
+                {{movie.year}}
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-md-1"><strong>Rating: </strong></p>
+            <div class="col">
+                {{movie.rating}}
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-md-1"><strong>Trailer: </strong></p>
+            <div class="col">
+                <a href="{{movie.trailer}}">{{movie.trailer}}</a>
+            </div>
+        </div>
+          </mat-expansion-panel>
+ </div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Movies</h1>
+        </div>
+        <div class="col">
+            <button mat-fab color="primary" (click)="gridClick()">
+                <mat-icon fontIcon="grid_on"></mat-icon>
+            </button>
+            <button mat-fab color="primary" (click)="cardClick()" >
+                <mat-icon fontIcon="list"></mat-icon>
+            </button>
+        </div>
+    </div>    
+</div>
+<div *ngIf="view=='c'" class="container">
+    <mat-card class="mat-elevation-z8" *ngFor="let movie of movies"  class="card">
+        <app-card [title]="movie.title" [id]="movie.id" ></app-card>
+    </mat-card>
+</div>
+<div *ngIf="view=='g'" class="container">
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile class="mat-elevation-z8" *ngFor="let movie of movies" >
+            <app-grid [title]="movie.title" [id]="movie.id" ></app-grid>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
